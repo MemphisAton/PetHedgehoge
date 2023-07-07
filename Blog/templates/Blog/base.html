@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href=" {% static 'css/base.css' %}">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body><style>
+body { background: url({% static 'Blog/33.jpg'%}); }
+</style>
+
+    {% include "includes/nav.html"%}
+<br>
+    {% block body %}
+    {% endblock %}
+  {% include 'includes/right_column.html'%}
+</body>
+</html>
