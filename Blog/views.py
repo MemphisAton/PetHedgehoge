@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from Blog.models import Blog
+from random import sample
 
 
 def index(request):
@@ -11,14 +13,11 @@ def index(request):
             {'image': 'pass1',
              'name': 'pass1',
              'about': 'pass1'}]
+    posts = sample(list(Blog.objects.all()), 3)
 
-    return render(request, 'Blog/index.html', {'data': data})
+    return render(request, 'Blog/index.html', {'data': data, 'posts': posts})
 
 
-# class BlogEntries(models.Model):
-#     title = models.CharField(max_length=255)
-#     content = models.TextField(blank=True)
-#     photo = models.ImageField(upload_to='')
-#     time_create = models.DateTimeField(auto_now_add=True)
-#     time_update = models.DateTimeField(auto_now=True)
-#     name = models.CharField(max_length=11, default='qwerty')
+def all_posts(request):
+    posts = list(Blog.objects.all())
+    return render(request, 'Blog/all_posts.html', {'posts': posts})

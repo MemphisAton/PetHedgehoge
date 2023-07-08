@@ -12,4 +12,4 @@ class Blog(models.Model):
     time_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'message {self.title} from {self.time_create}'
+        return f'{self.title} from {str(self.time_create)[:11]}'
