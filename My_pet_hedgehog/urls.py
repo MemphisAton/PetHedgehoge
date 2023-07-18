@@ -19,6 +19,11 @@ from django.contrib import admin
 from django.urls import path, include
 from My_pet_hedgehog import settings
 
+admin.site.site_header = "Администрирование ЖЖ"
+admin.site.index_title = 'Админка'
+admin.site.site_title = 'ЖЖ'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Blog.urls')),

@@ -8,3 +8,4 @@ urlpatterns = [
     path('', index, name='blog_index'),
     path('posts/', all_posts, name='blog_all_posts')
 ]  # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

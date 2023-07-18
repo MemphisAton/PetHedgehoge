@@ -26,9 +26,18 @@ class EnglishWords(models.Model):
     word = models.CharField(max_length=20, unique=True)
     translate = models.CharField(max_length=100)
     rules = models.CharField(max_length=255, blank=True, null=True)
+    category = models.ForeignKey('Category', on_delete=models.DO_NOTHING, null=True)
+    rule = models.ManyToManyField('RulesOfEnglish', null=True)
 
     def __str__(self):
         return f'{self.word}'
+
+
+class Category(models.Model):
+    category = models.IntegerField()
+
+    def __str__(self):
+        return f'Cat# {self.category}'
 
 
 class EnglishRules(models.Model):
@@ -36,7 +45,15 @@ class EnglishRules(models.Model):
     content = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'{self.rules}'
+        return self.rules
+
+
+class RulesOfEnglish(models.Model):
+    rules = models.CharField(max_length=255)
+    content = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.rules
 
 
 class PythonQuestion(models.Model):
