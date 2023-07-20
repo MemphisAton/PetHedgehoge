@@ -13,3 +13,6 @@ def all_posts(request):
     posts = Blog.objects.all()[::-1]
     return render(request, 'Blog/all_posts.html', {'posts': posts})
 
+
+def test_page(request):
+    return render(request, 'Blog/testpage.html')

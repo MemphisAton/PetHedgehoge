@@ -27,7 +27,7 @@ class EnglishWords(models.Model):
     translate = models.CharField(max_length=100)
     rules = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey('Category', on_delete=models.DO_NOTHING, null=True)
-    rule = models.ManyToManyField('RulesOfEnglish', null=True)
+    rule = models.ManyToManyField('RulesOfEnglish', blank=True)
 
     def __str__(self):
         return f'{self.word}'
